@@ -6,12 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
+
 import ListItem from "@material-ui/core/ListItem";
 import Box from "@material-ui/core/Box";
+import IconButton from "@material-ui/core/IconButton";
 
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
@@ -26,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: "nowrap",
+    ...theme.mixins.toolbar,
   },
   drawerOpen: {
     width: drawerWidth,
@@ -50,16 +50,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "flex-end",
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
   },
-  brandLogoBox: {
-    display: "flex",
-    justifyContent: "center",
+  brandBtn: {
+    padding: 0,
+    alignSelf: "center",
   },
   brandLogo: {
-    width: 50,
-    height: 50,
+    width: 55,
+    height: 55,
   },
 }));
 
@@ -82,9 +81,9 @@ const SideDrawer = () => {
         }),
       }}
     >
-      <Box className={classes.brandLogoBox}>
+      <IconButton className={classes.brandBtn}>
         <BrandLogo className={classes.brandLogo} />
-      </Box>
+      </IconButton>
 
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (

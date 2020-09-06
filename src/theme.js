@@ -11,7 +11,7 @@ export const greenLight = "#beefec";
 export const greenDark = "#269993";
 export const greyLight = "#f5f5f5";
 export const blueLight = "#f5f7ff";
-export const black = "#191919";
+export const black = "#3b3b3b";
 
 export default createMuiTheme({
   palette: {
