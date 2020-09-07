@@ -1,21 +1,20 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
 import clsx from "clsx";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import Box from "@material-ui/core/Box";
 
 import DoubleArrowRoundedIcon from "@material-ui/icons/DoubleArrowRounded";
-import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
+import CountryMenu from "./CountryMenu";
 
 import { openDrawer, closeDrawer } from "../../redux/actions/drawer";
 
-const drawerWidth = 240;
+const DRAWER_OPEN_WIDTH = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   toolbarShift: {
-    paddingLeft: drawerWidth + 33,
+    paddingLeft: DRAWER_OPEN_WIDTH + 33,
     transition: theme.transitions.create(["padding"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -94,7 +93,7 @@ export default function MenuAppBar() {
             aria-label="menu"
             edge="start"
           >
-            <DoubleArrowIcon style={{ fontSize: 28 }} />
+            <DoubleArrowRoundedIcon style={{ fontSize: 28 }} />
           </IconButton>
           <Typography variant="h5" className={classes.title}>
             <Typography variant="h5" className={classes.covid}>
@@ -102,6 +101,7 @@ export default function MenuAppBar() {
             </Typography>
             - Dashboard
           </Typography>
+          <CountryMenu />
         </Toolbar>
       </AppBar>
     </Box>

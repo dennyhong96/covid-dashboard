@@ -6,9 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
-
 import ListItem from "@material-ui/core/ListItem";
-import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
 
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -18,17 +16,17 @@ import MailIcon from "@material-ui/icons/Mail";
 
 import { ReactComponent as BrandLogo } from "../../assets/brand.svg";
 
-const drawerWidth = 240;
+const DRAWER_OPEN_WIDTH = 240;
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
-    width: drawerWidth,
+    width: DRAWER_OPEN_WIDTH,
     flexShrink: 0,
     whiteSpace: "nowrap",
     ...theme.mixins.toolbar,
   },
   drawerOpen: {
-    width: drawerWidth,
+    width: DRAWER_OPEN_WIDTH,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
