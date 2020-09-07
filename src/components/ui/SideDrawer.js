@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 4,
     alignSelf: "center",
     transition: `all 0.2s ease-in`,
+    marginBottom: "1rem",
   },
   brandTransformed: {
     marginTop: "2.5rem",
@@ -86,6 +87,7 @@ const SideDrawer = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const theme = useTheme();
+  const history = useHistory();
 
   return (
     <Drawer
@@ -124,15 +126,30 @@ const SideDrawer = () => {
       </IconButton>
 
       <List>
-        <ListItem button component={Link} to="/">
+        <ListItem
+          style={{ marginBottom: "1rem" }}
+          button
+          onClick={() => {
+            dispatch(closeDrawer());
+            setTimeout(() => {
+              history.push("/");
+            }, [500]);
+          }}
+        >
           <ListItemIcon>
-            <DashboardIcon />
+            <DashboardIcon style={{ fontSize: 28 }} />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>
-        <ListItem button component={Link} to="/news">
+        <ListItem
+          button
+          onClick={() => {
+            dispatch(closeDrawer());
+            history.push("/news");
+          }}
+        >
           <ListItemIcon>
-            <AnnouncementIcon />
+            <AnnouncementIcon style={{ fontSize: 28 }} />
           </ListItemIcon>
           <ListItemText primary="News" />
         </ListItem>

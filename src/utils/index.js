@@ -41,7 +41,7 @@ export const transformMapData = (data, type = "cases") =>
       <Circle
         key={`${record.countryInfo.iso2}-${record.country}`}
         center={[record.countryInfo.lat, record.countryInfo.long]}
-        fillOpacity={0.5}
+        fillOpacity={0.45}
         color={MAP_COLORS[type].color}
         fillColor={MAP_COLORS[type].color}
         radius={Math.sqrt(record[type]) * MAP_COLORS[type].rMultiplier}

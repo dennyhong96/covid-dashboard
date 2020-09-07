@@ -27,8 +27,8 @@ const App = () => {
         <MapView center={{ lat: 34.80746, lng: -40.4796 }} zoom={3} />
       </Grid>
       <Grid item xs={4}>
-        <CountryCasesTable style={{ marginBottom: theme.spacing(2) }} />
         <NewCasesChart />
+        <CountryCasesTable style={{ marginBottom: theme.spacing(2) }} />
       </Grid>
     </Grid>
   );

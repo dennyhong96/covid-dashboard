@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.redDark,
     left: 2,
     top: 2,
-    opacity: 0.9,
+    opacity: 0.75,
   },
   button: {
     textTransform: "none",
@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
     top: 12,
     transform: "scale(1.5)",
     zIndex: 0,
+    opacity: 0.5,
   },
   title: {
     color: theme.palette.common.green,
