@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    boxShadow: `0 3px 10px rgba(0,0,0,0.07)`,
+    boxShadow: `0 3px 10px rgba(0,0,0,0.04)`,
   },
   icon: {
     position: "absolute",

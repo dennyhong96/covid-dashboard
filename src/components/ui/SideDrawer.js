@@ -27,16 +27,10 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerOpen: {
     width: DRAWER_OPEN_WIDTH,
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
+    transition: `width 0.2s ease-in`,
   },
   drawerClose: {
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
+    transition: `width 0.2s ease-in`,
     overflowX: "hidden",
     width: theme.spacing(7) + 1,
     [theme.breakpoints.up("sm")]: {

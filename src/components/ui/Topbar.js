@@ -26,25 +26,19 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     paddingLeft: 64 + 33,
-    transition: theme.transitions.create(["padding"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
+    transition: `padding 0.2s ease-in`,
   },
   toolbarShift: {
     paddingLeft: DRAWER_OPEN_WIDTH + 33,
-    transition: theme.transitions.create(["padding"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
+    transition: `padding 0.2s ease-in`,
   },
   menuButton: {
     padding: theme.spacing(1),
-    transition: `transform 0.4s ease-out`,
+    transition: `transform 0.35s ease-out`,
   },
   menuButtonFlip: {
     transform: `rotate(180deg)`,
-    transition: `transform 0.4s ease-out`,
+    transition: `transform 0.35s ease-out`,
   },
   title: {
     flexGrow: 1,
