@@ -12,6 +12,7 @@ import MapView from "./Dashboard/MapView";
 import CasesByCountry from "./Dashboard/CasesByCountry";
 import NewCasesChart from "./Dashboard/NewCasesChart";
 import InfoSection from "./Dashboard/InfoSection";
+import CountryCasesTable from "./Dashboard/CountryCasesTable";
 import "./App.scss";
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
         <Grid item xs={4}>
           <CasesByCountry />
           <NewCasesChart />
+          <CountryCasesTable />
         </Grid>
       </Grid>
     </Box>
