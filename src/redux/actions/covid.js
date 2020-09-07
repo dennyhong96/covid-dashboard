@@ -15,8 +15,18 @@ export const fetchCountries = () => async (dispatch) => {
 };
 
 export const selectCountry = (country) => async (dispatch) => {
-  dispatch({
-    type: COUNTRY_SELECTED,
-    payload: country,
-  });
+  try {
+    const res = await axios.get(
+      country?.value
+        ? `https://disease.sh/v3/covid-19/countries/${country.value}`
+        : "https://disease.sh/v3/covid-19/all"
+    );
+    console.log(res.data);
+    dispatch({
+      type: COUNTRY_SELECTED,
+      payload: res.data,
+    });
+  } catch (error) {
+    console.error(error.response);
+  }
 };

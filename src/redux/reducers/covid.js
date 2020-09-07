@@ -11,10 +11,13 @@ export default (state = INITIAL_STATE, action) => {
     case COUNTRIES_FETCHED:
       return {
         ...state,
-        countries: payload.map((country) => ({
-          name: country.country,
-          value: country.countryInfo.iso2,
-        })),
+        countries: [
+          { name: "World Wide 🌍", value: null },
+          ...payload.map((country) => ({
+            name: country.country,
+            value: country.countryInfo.iso2,
+          })),
+        ],
       };
     case COUNTRY_SELECTED:
       return { ...state, selectedCountry: payload };

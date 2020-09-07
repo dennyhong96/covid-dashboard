@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux";
 
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
-import Topbar from "./ui/Topbar";
-import SideDrawer from "./ui/SideDrawer";
 
-import { fetchCountries } from "../redux/actions/covid";
+import { fetchCountries, selectCountry } from "../redux/actions/covid";
 import { greyLight } from "../theme";
+import Topbar from "./UI/Topbar";
+import SideDrawer from "./UI/SideDrawer";
 import MapView from "./Dashboard/MapView";
 import CasesByCountry from "./Dashboard/CasesByCountry";
 import NewCasesChart from "./Dashboard/NewCasesChart";
@@ -20,6 +20,7 @@ const App = () => {
   useEffect(() => {
     // Fetch a list of supported countries from desease.sh
     dispatch(fetchCountries());
+    dispatch(selectCountry());
   }, [dispatch]);
 
   return (

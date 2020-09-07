@@ -71,7 +71,7 @@ const CountryMenu = () => {
         onClick={handleClick}
       >
         <Typography noWrap style={{ fontSize: "0.9rem" }}>
-          {selectedCountry.name}
+          {selectedCountry.country || "World Wide"}
         </Typography>
         <KeyboardArrowDownIcon
           className={clsx(classes.arrowIcon, {
