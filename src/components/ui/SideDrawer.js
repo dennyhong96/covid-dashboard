@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -14,6 +14,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 
+import { closeDrawer } from "../../redux/actions/drawer";
 import { ReactComponent as BrandLogo } from "../../assets/brand.svg";
 
 const DRAWER_OPEN_WIDTH = 240;
@@ -24,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
     whiteSpace: "nowrap",
     ...theme.mixins.toolbar,
+    "& .MuiDrawer-paperAnchorDockedLeft": {
+      border: "none",
+      boxShadow: "0 3px 10px rgba(0,0,0,0.12)",
+    },
   },
   drawerOpen: {
     width: DRAWER_OPEN_WIDTH,
@@ -57,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
 const SideDrawer = () => {
   const open = useSelector(({ drawer: { open } }) => open);
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   return (
     <Drawer

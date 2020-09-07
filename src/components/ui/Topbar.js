@@ -21,9 +21,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   appBar: {
-    background: "#fff",
+    background: theme.palette.common.greyLight,
     color: theme.palette.common.black,
-    boxShadow: `0 3px 10px rgba(0,0,0,0.08)`,
   },
   toolbar: {
     paddingLeft: 64 + 33,
