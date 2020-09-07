@@ -38,7 +38,7 @@ export const selectCountry = (country) => async (dispatch) => {
 export const fetchChartData = (type) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `https://disease.sh/v3/covid-19/historical/all`
+      `https://disease.sh/v3/covid-19/historical/all?lastdays=120`
     );
     dispatch({
       type: CHART_DATA_FETCHED,
@@ -48,6 +48,6 @@ export const fetchChartData = (type) => async (dispatch) => {
       },
     });
   } catch (error) {
-    console.error(error.response);
+    console.error(error);
   }
 };

@@ -1,7 +1,7 @@
-export const transformChartData = (data = "cases", type) => {
+export const transformChartData = (data, type = "cases") => {
   const chartData = [];
   let previousCases;
-  data[type].forEach((date) => {
+  Object.keys(data[type]).forEach((date) => {
     if (previousCases) {
       chartData.push({
         x: date,
