@@ -1,6 +1,8 @@
 import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 
+import Button from "@material-ui/core/Button";
+
 import { ReactComponent as GreenCovid } from "../../assets/green-covid.svg";
 import { ReactComponent as RedCovid } from "../../assets/red-covid.svg";
 import { ReactComponent as YellowCovid } from "../../assets/yellow-covid.svg";
@@ -15,11 +17,18 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.common.greenLight,
     borderRadius: 10,
     margin: "1rem",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
     boxShadow: `0 3px 10px rgba(0,0,0,0.04)`,
+  },
+  button: {
+    width: "100%",
+    height: "100%",
+    "& .MuiButton-label": {
+      display: "flex",
+      flexDirection: "column",
+      padding: 0,
+      alignItems: "center",
+      justifyContent: "center",
+    },
   },
   icon: {
     position: "absolute",
@@ -63,16 +72,22 @@ const InfoCard = ({ bgColor, color, title, newCases, total }) => {
 
   return (
     <Card className={classes.card} style={{ backgroundColor: bgColor }}>
-      {ICON_MAP[color]}
-      <Typography align="center" className={classes.title} style={{ color }}>
-        {title}
-      </Typography>
-      <Typography align="center" className={classes.newCases} style={{ color }}>
-        {newCases}
-      </Typography>
-      <Typography align="center" className={classes.total} style={{ color }}>
-        {total} Total
-      </Typography>
+      <Button className={classes.button}>
+        {ICON_MAP[color]}
+        <Typography align="center" className={classes.title} style={{ color }}>
+          {title}
+        </Typography>
+        <Typography
+          align="center"
+          className={classes.newCases}
+          style={{ color }}
+        >
+          {newCases}
+        </Typography>
+        <Typography align="center" className={classes.total} style={{ color }}>
+          {total} Total
+        </Typography>
+      </Button>
     </Card>
   );
 };
