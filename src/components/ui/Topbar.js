@@ -65,18 +65,8 @@ export default function MenuAppBar() {
 
   return (
     <Box className={classes.root}>
-      <AppBar
-        position="fixed"
-        elevation={0}
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar
-          className={clsx(classes.toolbar, {
-            [classes.toolbarShift]: open,
-          })}
-        >
+      <AppBar position="fixed" elevation={0} className={classes.appBar}>
+        <Toolbar className={classes.toolbar}>
           <IconButton
             className={clsx(classes.menuButton, {
               [classes.menuButtonFlip]: open,

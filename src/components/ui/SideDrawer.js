@@ -13,6 +13,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import DoubleArrowRoundedIcon from "@material-ui/icons/DoubleArrowRounded";
 
 import { closeDrawer } from "../../redux/actions/drawer";
 import { ReactComponent as BrandLogo } from "../../assets/brand.svg";
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
       border: "none",
       boxShadow: "0 3px 10px rgba(0,0,0,0.12)",
     },
+    position: "relative",
   },
   drawerOpen: {
     width: DRAWER_OPEN_WIDTH,
@@ -41,6 +43,17 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       width: theme.spacing(9) + 1,
     },
+  },
+  backIconButton: {
+    transform: "rotate(-180deg)",
+    alignSelf: "flex-end",
+    position: "absolute",
+    padding: theme.spacing(1),
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+  },
+  backIcon: {
+    fontSize: 28,
   },
   toolbar: {
     display: "flex",
@@ -78,6 +91,16 @@ const SideDrawer = () => {
         }),
       }}
     >
+      {open && (
+        <IconButton
+          aria-label="menu"
+          edge="start"
+          className={classes.backIconButton}
+          onClick={() => dispatch(closeDrawer())}
+        >
+          <DoubleArrowRoundedIcon className={classes.backIcon} />
+        </IconButton>
+      )}
       <IconButton className={classes.brandBtn}>
         <BrandLogo className={classes.brandLogo} />
       </IconButton>

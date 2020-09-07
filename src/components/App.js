@@ -6,6 +6,7 @@ import { greyLight } from "../theme";
 import Topbar from "./UI/Topbar";
 import SideDrawer from "./UI/SideDrawer";
 import Dashboard from "./Pages/Dashboard";
+import Backdrop from "./UI/Backdrop";
 import "./App.scss";
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
     <Box style={{ backgroundColor: greyLight, minHeight: "100vh" }}>
       <Topbar />
       <SideDrawer />
+      <Backdrop />
       <Switch>
         <Route exact path="/" component={Dashboard} />
       </Switch>
