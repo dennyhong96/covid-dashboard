@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import { Provider as ReduxProvider } from "react-redux";
+import "leaflet/dist/leaflet.css";
 
 import store from "./redux/store";
 import theme from "./theme";

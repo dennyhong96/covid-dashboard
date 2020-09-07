@@ -5,18 +5,16 @@ export const chartConfig = {
     display: false,
   },
   elements: {
-    points: {
+    point: {
       radius: 0,
     },
   },
-  maintainAspectRatio: false,
+  // maintainAspectRatio: false,
   tooltips: {
     mode: "index",
     intersect: false,
     callbacks: {
-      label: function (tooltipItem, data) {
-        return numeral(tooltipItem.value).format("+0,0");
-      },
+      label: (tooltipItem, data) => numeral(tooltipItem.value).format("+0,0"),
     },
   },
   scales: {
@@ -35,9 +33,7 @@ export const chartConfig = {
           display: false,
         },
         ticks: {
-          callback: function (value, index, values) {
-            return numeral(value).format("0a");
-          },
+          callback: (value) => numeral(value).format("0a"),
         },
       },
     ],

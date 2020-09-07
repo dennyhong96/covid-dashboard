@@ -41,19 +41,23 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "1rem",
     marginRight: "1rem",
     height: "20rem",
-    boxShadow: `0 3px 10px rgba(0,0,0,0.04)`,
+    boxShadow: `0 3px 10px rgba(0,0,0,0.07)`,
     borderRadius: 10,
   },
 }));
 
-const CountryCasesTable = () => {
+const CountryCasesTable = ({ style }) => {
   const classes = useStyles();
   const countriesByCases = useSelector(
     ({ covid: { countriesByCases } }) => countriesByCases
   );
 
   return (
-    <TableContainer component={Paper} className={classes.tableContainer}>
+    <TableContainer
+      component={Paper}
+      className={classes.tableContainer}
+      style={style}
+    >
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>

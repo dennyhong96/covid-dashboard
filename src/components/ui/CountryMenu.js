@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
   },
   menu: {
     marginTop: theme.spacing(4.5),
+    borderRadius: 10,
+    "& .MuiPaper-rounded": {
+      borderRadius: 10,
+    },
   },
   arrowIcon: {
     transition: `transform 0.2s ease`,
