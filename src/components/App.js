@@ -9,7 +9,6 @@ import { greyLight } from "../theme";
 import Topbar from "./UI/Topbar";
 import SideDrawer from "./UI/SideDrawer";
 import MapView from "./Dashboard/MapView";
-import CasesByCountry from "./Dashboard/CasesByCountry";
 import NewCasesChart from "./Dashboard/NewCasesChart";
 import InfoSection from "./Dashboard/InfoSection";
 import CountryCasesTable from "./Dashboard/CountryCasesTable";
@@ -29,14 +28,13 @@ const App = () => {
       <Topbar />
       <SideDrawer />
       <Grid container style={{ paddingLeft: 73 }}>
-        <Grid item xs={8}>
+        <Grid item xs={9}>
           <InfoSection />
           <MapView />
         </Grid>
-        <Grid item xs={4}>
-          <CasesByCountry />
-          <NewCasesChart />
+        <Grid item xs={3}>
           <CountryCasesTable />
+          <NewCasesChart />
         </Grid>
       </Grid>
     </Box>

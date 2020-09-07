@@ -5,7 +5,7 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
-  const { type, payload } = action;
+  const { type } = action;
   switch (type) {
     case OPEN_DRAWER:
       return { ...state, open: true };

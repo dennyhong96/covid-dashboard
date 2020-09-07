@@ -34,12 +34,11 @@ const StyledTableRow = withStyles((theme) => ({
 }))(TableRow);
 
 const useStyles = makeStyles((theme) => ({
-  table: {
-    boxShadow: "none",
-  },
+  table: {},
   tableContainer: {
     width: "auto",
     marginLeft: theme.spacing(1),
+    marginTop: "1rem",
     marginRight: "1rem",
     height: "20rem",
     boxShadow: `0 3px 10px rgba(0,0,0,0.04)`,
