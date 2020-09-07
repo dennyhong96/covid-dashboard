@@ -63,8 +63,15 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
   },
   brandBtn: {
+    marginTop: "0.5rem",
     padding: 4,
     alignSelf: "center",
+    transition: `all 0.2s ease-in`,
+  },
+  brandTransformed: {
+    marginTop: "2.5rem",
+    transform: `scale(1.5)`,
+    transition: `all 0.2s ease-in`,
   },
   brandLogo: {
     width: 55,
@@ -101,7 +108,10 @@ const SideDrawer = () => {
           <DoubleArrowRoundedIcon className={classes.backIcon} />
         </IconButton>
       )}
-      <IconButton className={classes.brandBtn}>
+
+      <IconButton
+        className={clsx(classes.brandBtn, { [classes.brandTransformed]: open })}
+      >
         <BrandLogo className={classes.brandLogo} />
       </IconButton>
 
