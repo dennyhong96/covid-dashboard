@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { useSelector, useDispatch } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
+import { useSelector } from "react-redux";
 
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -57,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
 const SideDrawer = () => {
   const open = useSelector(({ drawer: { open } }) => open);
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <Drawer

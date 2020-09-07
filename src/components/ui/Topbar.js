@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 
 import AppBar from "@material-ui/core/AppBar";
@@ -57,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MenuAppBar() {
   const classes = useStyles();
-  const theme = useTheme();
   const open = useSelector(({ drawer: { open } }) => open);
   const dispatch = useDispatch();
 
