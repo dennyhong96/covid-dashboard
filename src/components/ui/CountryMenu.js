@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import clsx from "clsx";
 import { makeStyles } from "@material-ui/styles";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -7,7 +8,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Typography from "@material-ui/core/Typography";
 
-import SwapVertIcon from "@material-ui/icons/SwapVert";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 
 import { selectCountry } from "../../redux/actions/covid";
 
@@ -26,6 +27,13 @@ const useStyles = makeStyles((theme) => ({
   },
   menu: {
     marginTop: theme.spacing(4.5),
+  },
+  arrowIcon: {
+    transition: `transform 0.2s ease`,
+  },
+  arrowIconFlip: {
+    transform: `rotate(180deg)`,
+    transition: `transform 0.2s ease`,
   },
 }));
 
@@ -63,9 +71,13 @@ const CountryMenu = () => {
         onClick={handleClick}
       >
         <Typography noWrap style={{ fontSize: "0.9rem" }}>
-          {selectedCountry?.name || "World Wide"}
+          {selectedCountry.name}
         </Typography>
-        <SwapVertIcon style={{ fontSize: 20 }} />
+        <KeyboardArrowDownIcon
+          className={clsx(classes.arrowIcon, {
+            [classes.arrowIconFlip]: !!anchorEl,
+          })}
+        />
       </Button>
       <Menu
         id="country-menu"

@@ -96,9 +96,9 @@ export default function MenuAppBar() {
             <DoubleArrowRoundedIcon style={{ fontSize: 28 }} />
           </IconButton>
           <Typography variant="h5" className={classes.title}>
-            <Typography variant="h5" className={classes.covid}>
+            <span variant="h5" className={classes.covid}>
               COVID-19{" "}
-            </Typography>
+            </span>
             - Dashboard
           </Typography>
           <CountryMenu />

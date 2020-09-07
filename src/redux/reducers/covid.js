@@ -2,7 +2,7 @@ import { COUNTRIES_FETCHED, COUNTRY_SELECTED } from "../actions";
 
 const INITIAL_STATE = {
   countries: [],
-  selectedCountry: null,
+  selectedCountry: { name: "World Wide", value: false },
 };
 
 export default (state = INITIAL_STATE, action) => {
