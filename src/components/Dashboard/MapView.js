@@ -1,8 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core";
-import Card from "@material-ui/core/Card";
 import { Map, TileLayer } from "react-leaflet";
+
+import Card from "@material-ui/core/Card";
+
+import { transformMapData } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
   mapBox: {
@@ -25,6 +28,9 @@ const MapView = () => {
   const selectedCountry = useSelector(
     ({ covid: { selectedCountry } }) => selectedCountry
   );
+  const countriesByCases = useSelector(
+    ({ covid: { countriesByCases } }) => countriesByCases
+  );
 
   const center = selectedCountry.countryInfo
     ? {
@@ -41,6 +47,7 @@ const MapView = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
+        {transformMapData(countriesByCases)}
       </Map>
     </Card>
   );
