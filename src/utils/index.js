@@ -1,23 +1,9 @@
 import React from "react";
 import { Circle, Popup } from "react-leaflet";
+import numeral from "numeral";
 
 import { green, red, yellow } from "../theme";
 import MapPopup from "../components/Dashboard/MapPopup";
-
-export const transformChartData = (data, type = "cases") => {
-  const chartData = [];
-  let previousCases;
-  Object.keys(data[type]).forEach((date) => {
-    if (previousCases) {
-      chartData.push({
-        x: date,
-        y: data[type][date] - previousCases,
-      });
-    }
-    previousCases = data[type][date];
-  });
-  return chartData;
-};
 
 const MAP_COLORS = {
   cases: {
@@ -32,6 +18,21 @@ const MAP_COLORS = {
     color: red,
     rMultiplier: 2000,
   },
+};
+
+export const transformChartData = (data, type = "cases") => {
+  const chartData = [];
+  let previousCases;
+  Object.keys(data[type]).forEach((date) => {
+    if (previousCases) {
+      chartData.push({
+        x: date,
+        y: data[type][date] - previousCases,
+      });
+    }
+    previousCases = data[type][date];
+  });
+  return chartData;
 };
 
 export const transformMapData = (data, type = "cases") =>
@@ -52,3 +53,6 @@ export const transformMapData = (data, type = "cases") =>
       </Circle>
     );
   });
+
+export const transformInfoCardData = (data) =>
+  data ? `+ ${numeral(data).format("0.0a")}` : "+0";

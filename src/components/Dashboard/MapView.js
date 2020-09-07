@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     borderRadius: 15,
-    boxShadow: `0 3px 10px rgba(0,0,0,0.04)`,
+    boxShadow: `0 3px 10px rgba(0,0,0,0.08)`,
     padding: theme.spacing(1.5),
     backgroundColor: "#fff",
     "& .leaflet-container": {
@@ -31,6 +31,7 @@ const MapView = () => {
   const countriesByCases = useSelector(
     ({ covid: { countriesByCases } }) => countriesByCases
   );
+  const casesType = useSelector(({ covid: { casesType } }) => casesType);
 
   const center = selectedCountry.countryInfo
     ? {
@@ -47,7 +48,7 @@ const MapView = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {transformMapData(countriesByCases)}
+        {transformMapData(countriesByCases, casesType)}
       </Map>
     </Card>
   );

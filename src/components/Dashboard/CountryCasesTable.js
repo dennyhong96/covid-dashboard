@@ -1,6 +1,7 @@
 import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { useSelector } from "react-redux";
+import numeral from "numeral";
 
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "1rem",
     marginRight: "1rem",
     height: "20rem",
-    boxShadow: `0 3px 10px rgba(0,0,0,0.07)`,
+    boxShadow: `0 3px 10px rgba(0,0,0,0.08)`,
     borderRadius: 10,
   },
 }));
@@ -71,9 +72,17 @@ const CountryCasesTable = ({ style }) => {
               key={`${record.country}-${record.countryInfo.iso2}`}
             >
               <StyledTableCell component="th" scope="row">
-                {record.country}
+                {record.country.toUpperCase()}{" "}
+                <img
+                  src={record.countryInfo.flag}
+                  alt="Country Flag"
+                  height={12}
+                  style={{ marginLeft: 5 }}
+                />
               </StyledTableCell>
-              <StyledTableCell align="right">{record.cases}</StyledTableCell>
+              <StyledTableCell align="right">
+                {numeral(record.cases).format("0,0")}
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

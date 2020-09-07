@@ -4,6 +4,7 @@ import {
   COUNTRIES_FETCHED,
   COUNTRY_SELECTED,
   CHART_DATA_FETCHED,
+  CASE_TYPE_SET,
 } from "./index";
 
 export const fetchCountries = () => async (dispatch) => {
@@ -50,4 +51,11 @@ export const fetchChartData = (type) => async (dispatch) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+export const setCaseType = (type) => (dispatch) => {
+  dispatch({
+    type: CASE_TYPE_SET,
+    payload: type,
+  });
 };

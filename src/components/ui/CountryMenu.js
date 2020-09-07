@@ -22,10 +22,10 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     "&:hover": {
       backgroundColor: theme.palette.common.green,
-      boxShadow: `0 3px 10px rgba(0,0,0,0.12)`,
+      boxShadow: `0 3px 10px rgba(0,0,0,0.08)`,
     },
     width: theme.spacing(17.5),
-    boxShadow: `0 2px 7px rgba(0,0,0,0.12)`,
+    boxShadow: `0 3px 10px rgba(0,0,0,0.08)`,
   },
   menu: {
     marginTop: theme.spacing(4.5),

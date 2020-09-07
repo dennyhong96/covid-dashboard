@@ -2,6 +2,7 @@ import {
   COUNTRIES_FETCHED,
   COUNTRY_SELECTED,
   CHART_DATA_FETCHED,
+  CASE_TYPE_SET,
 } from "../actions";
 
 import { transformChartData } from "../../utils";
@@ -11,6 +12,7 @@ const INITIAL_STATE = {
   selectedCountry: { name: "World Wide", value: false },
   countriesByCases: [],
   chartData: null,
+  casesType: "cases",
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -37,6 +39,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         chartData: transformChartData(payload.data, payload.type),
+      };
+    case CASE_TYPE_SET:
+      return {
+        ...state,
+        casesType: payload,
       };
     default:
       return state;

@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "#fff",
     color: theme.palette.common.black,
-    boxShadow: `0 3px 10px rgba(0,0,0,0.04)`,
+    boxShadow: `0 3px 10px rgba(0,0,0,0.08)`,
   },
   toolbar: {
     paddingLeft: 64 + 33,

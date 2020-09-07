@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
   },
   brandBtn: {
-    padding: 0,
+    padding: 4,
     alignSelf: "center",
   },
   brandLogo: {

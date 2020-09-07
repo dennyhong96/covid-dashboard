@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import { ReactComponent as GreenCovid } from "../../assets/green-covid.svg";
 import { ReactComponent as RedCovid } from "../../assets/red-covid.svg";
 import { ReactComponent as YellowCovid } from "../../assets/yellow-covid.svg";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 
 import Card from "@material-ui/core/Card";
 import { green, yellow, red } from "../../theme";
@@ -15,11 +16,23 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     height: "10rem",
     backgroundColor: theme.palette.common.greenLight,
-    borderRadius: 10,
+    borderRadius: 15,
     margin: "1rem",
-    boxShadow: `0 3px 10px rgba(0,0,0,0.04)`,
+    boxShadow: `0 3px 10px rgba(0,0,0,0.08)`,
+    overflow: "hidden",
+  },
+  active: {
+    position: "absolute",
+    fontSize: 15,
+    borderRadius: 15,
+    color: theme.palette.common.redDark,
+    left: 1,
+    top: 1,
+    zIndex: 1,
+    opacity: 0.9,
   },
   button: {
+    textTransform: "none",
     width: "100%",
     height: "100%",
     "& .MuiButton-label": {
@@ -62,7 +75,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const InfoCard = ({ bgColor, color, title, newCases, total }) => {
+const InfoCard = ({
+  bgColor,
+  color,
+  title,
+  newCases,
+  total,
+  onClick,
+  active,
+}) => {
   const classes = useStyles();
   const ICON_MAP = {
     [green]: <GreenCovid className={classes.icon} />,
@@ -72,7 +93,8 @@ const InfoCard = ({ bgColor, color, title, newCases, total }) => {
 
   return (
     <Card className={classes.card} style={{ backgroundColor: bgColor }}>
-      <Button className={classes.button}>
+      {active && <FiberManualRecordIcon className={classes.active} />}
+      <Button className={classes.button} onClick={onClick}>
         {ICON_MAP[color]}
         <Typography align="center" className={classes.title} style={{ color }}>
           {title}

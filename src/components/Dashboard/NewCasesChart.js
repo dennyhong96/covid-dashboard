@@ -5,6 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { chartConfig } from "../../config";
 import { fetchChartData } from "../../redux/actions/covid";
+import {
+  greenLight,
+  greenDark,
+  redLight,
+  redDark,
+  yellowLight,
+  yellowDark,
+} from "../../theme";
 
 import { Line } from "react-chartjs-2";
 
@@ -16,20 +24,36 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(0.5),
     paddingTop: theme.spacing(2.5),
     paddingBottom: theme.spacing(2.5),
-    boxShadow: `0 3px 10px rgba(0,0,0,0.04)`,
+    boxShadow: `0 3px 10px rgba(0,0,0,0.08)`,
     borderRadius: 10,
   },
 }));
 
+const CHART_THEME_MAP = {
+  cases: {
+    bg: yellowLight,
+    border: yellowDark,
+  },
+  recovered: {
+    bg: greenLight,
+    border: greenDark,
+  },
+  deaths: {
+    bg: redLight,
+    border: redDark,
+  },
+};
+
 const NewCasesChart = () => {
   const dispatch = useDispatch();
   const chartData = useSelector(({ covid: { chartData } }) => chartData);
+  const casesType = useSelector(({ covid: { casesType } }) => casesType);
   const theme = useTheme();
   const classes = useStyles();
 
   useEffect(() => {
-    dispatch(fetchChartData());
-  }, []);
+    dispatch(fetchChartData(casesType));
+  }, [casesType, dispatch]);
 
   console.log(chartData);
   return (
@@ -38,8 +62,8 @@ const NewCasesChart = () => {
         data={{
           datasets: [
             {
-              backgroundColor: theme.palette.common.greenLight,
-              borderColor: theme.palette.common.greenDark,
+              backgroundColor: CHART_THEME_MAP[casesType].bg,
+              borderColor: CHART_THEME_MAP[casesType].border,
               data: chartData,
             },
           ],
