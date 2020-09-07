@@ -9,7 +9,7 @@ import { transformChartData } from "../../utils";
 
 const INITIAL_STATE = {
   countries: [],
-  selectedCountry: { name: "World Wide", value: false },
+  selectedCountry: null,
   countriesByCases: [],
   chartData: null,
   casesType: "cases",

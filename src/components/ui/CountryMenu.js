@@ -29,9 +29,9 @@ const useStyles = makeStyles((theme) => ({
   },
   menu: {
     marginTop: theme.spacing(4.5),
-    borderRadius: 10,
+    borderRadius: 15,
     "& .MuiPaper-rounded": {
-      borderRadius: 10,
+      borderRadius: 15,
     },
   },
   arrowIcon: {
@@ -76,7 +76,7 @@ const CountryMenu = () => {
         onClick={handleClick}
       >
         <Typography noWrap style={{ fontSize: "0.9rem" }}>
-          {selectedCountry.country || "World Wide"}
+          {selectedCountry?.country || "World Wide"}
         </Typography>
         <KeyboardArrowDownIcon
           className={clsx(classes.arrowIcon, {

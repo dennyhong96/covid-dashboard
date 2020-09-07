@@ -26,9 +26,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 15,
     borderRadius: 15,
     color: theme.palette.common.redDark,
-    left: 1,
-    top: 1,
-    zIndex: 1,
+    left: 2,
+    top: 2,
     opacity: 0.9,
   },
   button: {

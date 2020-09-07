@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useTheme, makeStyles } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(2.5),
     paddingBottom: theme.spacing(2.5),
     boxShadow: `0 3px 10px rgba(0,0,0,0.08)`,
-    borderRadius: 10,
+    borderRadius: 15,
   },
 }));
 
@@ -48,16 +49,27 @@ const NewCasesChart = () => {
   const dispatch = useDispatch();
   const chartData = useSelector(({ covid: { chartData } }) => chartData);
   const casesType = useSelector(({ covid: { casesType } }) => casesType);
+  const selectedCountry = useSelector(
+    ({ covid: { selectedCountry } }) => selectedCountry
+  );
   const theme = useTheme();
   const classes = useStyles();
 
   useEffect(() => {
     dispatch(fetchChartData(casesType));
-  }, [casesType, dispatch]);
+  }, [casesType, dispatch, selectedCountry]);
 
-  console.log(chartData);
   return (
     <Card className={classes.card}>
+      <Typography
+        align="center"
+        variant="h6"
+        style={{ fontWeight: 700, color: theme.palette.common.black }}
+        gutterBottom
+      >
+        {selectedCountry?.country || "World Wide"}{" "}
+        {`${casesType.slice(0, 1).toUpperCase()}${casesType.slice(1)}`}
+      </Typography>
       <Line
         data={{
           datasets: [

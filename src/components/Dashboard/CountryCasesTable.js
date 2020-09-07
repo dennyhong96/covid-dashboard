@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "1rem",
     height: "20rem",
     boxShadow: `0 3px 10px rgba(0,0,0,0.08)`,
-    borderRadius: 10,
+    borderRadius: 15,
   },
 }));
 

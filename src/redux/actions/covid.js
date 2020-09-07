@@ -26,7 +26,7 @@ export const selectCountry = (country) => async (dispatch) => {
         ? `https://disease.sh/v3/covid-19/countries/${country.value}`
         : "https://disease.sh/v3/covid-19/all"
     );
-    console.log(res.data);
+
     dispatch({
       type: COUNTRY_SELECTED,
       payload: res.data,
@@ -36,15 +36,22 @@ export const selectCountry = (country) => async (dispatch) => {
   }
 };
 
-export const fetchChartData = (type) => async (dispatch) => {
+export const fetchChartData = (type) => async (dispatch, getState) => {
   try {
-    const res = await axios.get(
-      `https://disease.sh/v3/covid-19/historical/all?lastdays=120`
-    );
+    const {
+      covid: { selectedCountry },
+    } = await getState();
+
+    const url = selectedCountry?.countryInfo
+      ? `https://disease.sh/v3/covid-19/historical/${selectedCountry.countryInfo.iso2}?lastdays=120`
+      : `https://disease.sh/v3/covid-19/historical/all?lastdays=120`;
+
+    const res = await axios.get(url);
+
     dispatch({
       type: CHART_DATA_FETCHED,
       payload: {
-        data: res.data,
+        data: selectedCountry?.countryInfo ? res.data.timeline : res.data,
         type,
       },
     });

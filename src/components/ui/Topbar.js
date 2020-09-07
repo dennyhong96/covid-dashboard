@@ -94,7 +94,7 @@ export default function MenuAppBar() {
             <span variant="h5" className={classes.covid}>
               COVID-19{" "}
             </span>
-            - Dashboard
+            Dashboard
           </Typography>
           <CountryMenu />
         </Toolbar>

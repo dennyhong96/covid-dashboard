@@ -37,7 +37,6 @@ export const transformChartData = (data, type = "cases") => {
 
 export const transformMapData = (data, type = "cases") =>
   data.map((record) => {
-    console.log(record);
     return (
       <Circle
         key={`${record.countryInfo.iso2}-${record.country}`}

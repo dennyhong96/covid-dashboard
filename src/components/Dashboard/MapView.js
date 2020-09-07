@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff",
     "& .leaflet-container": {
       height: "100%",
-      borderRadius: 10,
+      borderRadius: 15,
     },
   },
 }));
@@ -33,13 +33,13 @@ const MapView = () => {
   );
   const casesType = useSelector(({ covid: { casesType } }) => casesType);
 
-  const center = selectedCountry.countryInfo
+  const center = selectedCountry?.countryInfo
     ? {
         lat: selectedCountry.countryInfo.lat,
         lng: selectedCountry.countryInfo.long,
       }
     : { lat: 34.80746, lng: -40.4796 };
-  const zoom = selectedCountry.countryInfo ? 4 : 3;
+  const zoom = selectedCountry?.countryInfo ? 4 : 3;
 
   return (
     <Card className={classes.mapBox}>
